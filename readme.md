@@ -17,3 +17,5 @@
 	- Separate your tests
 1. Distinguish broken vs failed test
 	- Investigate from failures
+1. Name your tests
+	- Make the test report tells you what is wrong
