@@ -1,6 +1,7 @@
 package fr.vergne.meritis;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
@@ -12,15 +13,15 @@ class OperatorTest {
 	void test() {
 		OperatorConf conf = mock(OperatorConf.class);
 		doReturn(42.0).when(conf).bias();
-		assertEquals(42.0, new Operator(conf).linear(0));
+		assertThat(new Operator(conf).linear(0), is(42.0));
 		
 		doReturn(0.0).when(conf).bias();
 		doReturn(12.0).when(conf).slope();
-		assertEquals(12.0, new Operator(conf).linear(1));
+		assertThat(new Operator(conf).linear(1), is(12.0));
 		
 		doReturn(1.0).when(conf).bias();
 		doReturn(2.0).when(conf).slope();
-		assertEquals(21.0, new Operator(conf).linear(10));
+		assertThat(new Operator(conf).linear(10), is(21.0));
 	}
 
 }

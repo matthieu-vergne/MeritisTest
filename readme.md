@@ -8,3 +8,5 @@
 	- 1 test for all linears
 1. Mockito
 	- mock conf to control parameters
+1. Hamcrest
+	- more intuitive assertions
