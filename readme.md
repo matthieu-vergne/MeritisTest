@@ -19,3 +19,8 @@
 	- Investigate from failures
 1. Name your tests
 	- Make the test report tells you what is wrong
+
+# Start designing
+
+1. Factor your code
+	- Abstract the low level details

@@ -12,33 +12,33 @@ class OperatorTest {
 
 	@Test
 	void testOperatorCanBeInstantiated() {
-		OperatorConf conf = mock(OperatorConf.class);
-		doReturn(42.0).when(conf).bias();
-		doReturn(1.0).when(conf).slope();
+		OperatorConf conf = mockConf(42.0, 1.0);
 		assertDoesNotThrow(() -> new Operator(conf));
 	}
 
 	@Test
 	void testLinearReturnsBiasAtZero() {
-		OperatorConf conf = mock(OperatorConf.class);
-		doReturn(42.0).when(conf).bias();
+		OperatorConf conf = mockConf(42.0, 0.0);
 		assertThat(new Operator(conf).linear(0), is(42.0));
 	}
 
 	@Test
 	void testLinearWithNoBiasReturnsSlopeAtOne() {
-		OperatorConf conf = mock(OperatorConf.class);
-		doReturn(0.0).when(conf).bias();
-		doReturn(12.0).when(conf).slope();
+		OperatorConf conf = mockConf(0.0, 12.0);
 		assertThat(new Operator(conf).linear(1), is(12.0));
 	}
 
 	@Test
 	void testLinearWithBiasAndSlope() {
-		OperatorConf conf = mock(OperatorConf.class);
-		doReturn(1.0).when(conf).bias();
-		doReturn(2.0).when(conf).slope();
+		OperatorConf conf = mockConf(1.0, 2.0);
 		assertThat(new Operator(conf).linear(10), is(21.0));
+	}
+
+	static private OperatorConf mockConf(double bias, double slope) {
+		OperatorConf conf = mock(OperatorConf.class);
+		doReturn(bias).when(conf).bias();
+		doReturn(slope).when(conf).slope();
+		return conf;
 	}
 
 }

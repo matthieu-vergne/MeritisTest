@@ -5,9 +5,6 @@ public class Operator {
 	private final OperatorConf conf;
 
 	public Operator(OperatorConf conf) {
-		if (true) {
-			throw new RuntimeException();
-		}
 		this.conf = conf;
 	}
 
