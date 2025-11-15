@@ -24,3 +24,5 @@
 
 1. Factor your code
 	- Abstract the low level details
+1. Factor your tests
+	- List test cases rather than writing new tests
