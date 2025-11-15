@@ -10,3 +10,8 @@
 	- mock conf to control parameters
 1. Hamcrest
 	- more intuitive assertions
+
+# Basics
+
+1. Don't stop testing on first failure
+	- Separate your tests
