@@ -26,3 +26,5 @@
 	- Abstract the low level details
 1. Factor your tests
 	- List test cases rather than writing new tests
+1. Exploit your abstractions
+	- Same concepts for code and tests, toString maintains report clarity

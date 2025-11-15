@@ -24,16 +24,15 @@ class OperatorTest {
 
 	static Stream<Arguments> testCases() {
 		return Stream.of(//
-				arguments(42.0, 0.0, 0.0, 42.0), //
-				arguments(0.0, 12.0, 1.0, 12.0), //
-				arguments(1.0, 2.0, 10.0, 21.0)//
+				arguments(mockConf(42.0, 0.0), 0.0, 42.0), //
+				arguments(mockConf(0.0, 12.0), 1.0, 12.0), //
+				arguments(mockConf(1.0, 2.0), 10.0, 21.0)//
 		);
 	}
 
-	@ParameterizedTest(name = "{0} + {1} x {2} = {3}")
+	@ParameterizedTest(name = "With {0}, linear({1}) = {2}")
 	@MethodSource("testCases")
-	void testLinear(double bias, double slope, double x, double result) {
-		OperatorConf conf = mockConf(bias, slope);
+	void testLinear(OperatorConf conf, double x, double result) {
 		assertThat(new Operator(conf).linear(x), is(result));
 	}
 
@@ -41,6 +40,7 @@ class OperatorTest {
 		OperatorConf conf = mock(OperatorConf.class);
 		doReturn(bias).when(conf).bias();
 		doReturn(slope).when(conf).slope();
+		doReturn("(bias, slope)=(" + bias + ", " + slope + ")").when(conf).toString();
 		return conf;
 	}
 
