@@ -28,3 +28,5 @@
 	- List test cases rather than writing new tests
 1. Exploit your abstractions
 	- Same concepts for code and tests, toString maintains report clarity
+1. Add new abstractions
+	- More genericity, easier to add tests cases
