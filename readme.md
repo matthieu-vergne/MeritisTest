@@ -6,3 +6,5 @@
 	- keep it simple to focus on testing
 1. JUnit Test
 	- 1 test for all linears
+1. Mockito
+	- mock conf to control parameters
