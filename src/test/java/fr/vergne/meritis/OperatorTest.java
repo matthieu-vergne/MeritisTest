@@ -2,12 +2,21 @@ package fr.vergne.meritis;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.Test;
 
 class OperatorTest {
+
+	@Test
+	void test0() {
+		OperatorConf conf = mock(OperatorConf.class);
+		doReturn(42.0).when(conf).bias();
+		doReturn(1.0).when(conf).slope();
+		assertDoesNotThrow(() -> new Operator(conf));
+	}
 
 	@Test
 	void test1() {

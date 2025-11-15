@@ -15,3 +15,5 @@
 
 1. Don't stop testing on first failure
 	- Separate your tests
+1. Distinguish broken vs failed test
+	- Investigate from failures
